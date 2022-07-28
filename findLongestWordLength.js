@@ -1,39 +1,16 @@
-function findLongestWordLength(str) {
+function largestOfFour(arr) {
 
-    var words = [];  
-    var countSpace = 0;
-    var longestWord = "";
-    words[countSpace] = "";
+    var largestArr = [];
+          for(var i=0;i<arr.length;i++){
     
-        for(var i=0;i<str.length;i++){
-              
-               if(str[i] != " ") {
-                    
-                    // console.log(countSpace);
-                    words[countSpace] += str[i];
-                    // console.log(words)
-                    
-              }else if(str[i] == " ") {
+                  arr[i].sort(function(a, b){return a-b});
+                 /* The code below will also find the last element
+                  console.log(arr[i][arr[i].length - 1]); */
+                  largestArr.push(arr[i].pop());
+                  console.log(largestArr);
     
-                       countSpace++;
-                       words[countSpace] = "";
-                      //  console.log(countSpace);
-              }
-        }             
-                    const asc = words.sort((a,b) => a.length - b.length);
-                    longestWord = asc.pop();
-                    console.log(longestWord.length);
-    
-    /*The code below will also find the same results as the one above....                
-                    console.log(words.sort());
-                     words.forEach(function(word) {
-                      if(word.length > longestWord.length) {
-                        longestWord = word;
-                      }
-                    });
-    
-                    console.log(longestWord.length);
-                    return longestWord.length;*/
+          }
+      return largestArr;
     }
     
-    findLongestWordLength("The quick brown fox jumped over the lazy dog");
+    largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]);
